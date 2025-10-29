@@ -28,5 +28,5 @@ diabetes-readmission-prediction/
 └── model_card.md          # short summary of final model details
 
 
-### 👩‍💻 Author
-Your Name  
+# Author
+Olivera Jovanovic
