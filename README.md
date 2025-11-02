@@ -15,22 +15,23 @@ The workflow demonstrates a complete **end-to-end ML pipeline** — from data cl
 ## Folder Structure
 diabetes-readmission-prediction/
 │
-├── data/ # raw + processed data (not committed)
-├── plots/ # saved charts & visualizations
-├── EDA.ipynb # exploratory data analysis notebook
-├── Modeling.ipynb # model training notebook
+├── data/                     # raw + processed data (not committed)
+├── plots/                    # saved charts & visualizations
 │
-├── train.py # trains and saves the model
-├── predict.py # local model inference
-├── serve.py # FastAPI web service (Docker entrypoint)
+├── EDA.ipynb                 # exploratory data analysis
+├── Modeling.ipynb            # model training and evaluation
 │
-├── requirements.txt # dependencies
-├── Dockerfile # container build recipe
-├── model_xgb.pkl # trained model artifact
-├── pyproject.toml, uv.lock # uv environment files
-└── README.md # this file
-
-
+├── train.py                  # trains and saves the model artifact
+├── predict.py                # local model inference test
+├── serve.py                  # FastAPI web service (Docker entrypoint)
+│
+├── model_xgb.pkl             # trained XGBoost model
+│
+├── requirements.txt          # Python dependencies
+├── Dockerfile                # container build recipe
+├── pyproject.toml            # uv project configuration
+├── uv.lock                   # environment lock file
+└── README.md                 # project documentation
 ---
 
 ## Problem Statement
