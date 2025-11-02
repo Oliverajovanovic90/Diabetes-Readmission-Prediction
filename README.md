@@ -32,7 +32,6 @@ diabetes-readmission-prediction/
 ├── pyproject.toml            # uv project configuration
 ├── uv.lock                   # environment lock file
 └── README.md                 # project documentation
-~~~
 ---
 
 ## Problem Statement
@@ -183,7 +182,7 @@ curl -X POST -H "Content-Type: application/json" \
 http://localhost:9696/predict
 
 ---
-# Architecture Overview:
+## Architecture Overview:
 
           +---------------------+
           |   Raw CSV Dataset   |
@@ -212,7 +211,7 @@ http://localhost:9696/predict
 
 
 ---
-# Author
+## Author
 Olivera Jovanovic
 Data Analyst | Machine Learning Zoomcamp 2025
 
