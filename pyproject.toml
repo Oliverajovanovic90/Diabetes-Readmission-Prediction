@@ -11,5 +11,6 @@ dependencies = [
     "scikit-learn",
     "xgboost",
     "fastapi",
-    "uvicorn"
+    "uvicorn",
+    "requests",
 ]
