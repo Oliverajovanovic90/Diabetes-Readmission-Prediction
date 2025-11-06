@@ -188,19 +188,19 @@ http://localhost:9696/predict
 To expose the model publicly, the Dockerized FastAPI service was deployed on **AWS Elastic Beanstalk**.
 
 ### Steps Performed
-Installed the Elastic Beanstalk CLI
+Installed the Elastic Beanstalk CLI : 
 pip install awsebcli --upgrade
 
-Initialized the application for Docker in region us-east-2
+Initialized the application for Docker in region us-east-2: 
 eb init -p docker -r us-east-2 diabetes-readmission
 
-Deployed to AWS Elastic Beanstalk
+Deployed to AWS Elastic Beanstalk: 
 eb create diabetes-readmission-env
 
-After deployment, the API was available at:
+After deployment, the API was available at: 
 http://diabetes-readmission-env.eba-p33i43zn.us-east-2.elasticbeanstalk.com
 
-To avoid charges, the environment was terminated:
+To avoid charges, the environment was terminated: 
 eb terminate diabetes-readmission-env
 
 ---
