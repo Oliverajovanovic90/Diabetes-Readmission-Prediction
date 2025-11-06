@@ -10,7 +10,7 @@ https://www.kaggle.com/datasets/brandao/diabetes
 Hospital readmissions are costly and often preventable.  
 This project builds a **machine-learning model** that predicts whether a diabetic patient will be readmitted within 30 days of discharge.  
 
-The workflow demonstrates a complete **end-to-end ML pipeline** — from data cleaning and EDA to model development, evaluation, and deployment via a FastAPI web service containerized with Docker.
+The workflow demonstrates a complete end-to-end ML pipeline — from data cleaning and exploratory data analysis to model development, evaluation, and deployment. The trained model is exposed through a FastAPI web service, containerized with Docker, and deployed as a live, scalable service on AWS Elastic Beanstalk (Docker platform).
 
 ---
 
@@ -183,6 +183,27 @@ curl -X POST -H "Content-Type: application/json" \
 -d '{"race":"Caucasian","gender":"Female", ... }' \
 http://localhost:9696/predict
 
+## AWS Deployment (Elastic Beanstalk)
+
+To expose the model publicly, the Dockerized FastAPI service was deployed on **AWS Elastic Beanstalk**.
+
+### Steps Performed
+1. Installed the Elastic Beanstalk CLI
+```bash
+pip install awsebcli --upgrade
+
+2. Initialized the application for Docker in region us-east-2
+eb init -p docker -r us-east-2 diabetes-readmission
+
+3. Deployed to AWS Elastic Beanstalk
+eb create diabetes-readmission-env
+
+4. After deployment, the API was available at:
+http://diabetes-readmission-env.eba-p33i43zn.us-east-2.elasticbeanstalk.com
+
+5. To avoid charges, the environment was terminated:
+eb terminate diabetes-readmission-env
+
 ---
 
 ##  Architecture Overview:
@@ -214,6 +235,7 @@ http://localhost:9696/predict
 
 
 ---
+
 ## Author
 Olivera Jovanovic
 Data Analyst | Machine Learning Zoomcamp 2025
