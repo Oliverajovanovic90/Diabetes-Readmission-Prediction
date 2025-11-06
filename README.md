@@ -189,7 +189,6 @@ To expose the model publicly, the Dockerized FastAPI service was deployed on **A
 
 ### Steps Performed
 1. Installed the Elastic Beanstalk CLI
-```bash
 pip install awsebcli --upgrade
 
 2. Initialized the application for Docker in region us-east-2
