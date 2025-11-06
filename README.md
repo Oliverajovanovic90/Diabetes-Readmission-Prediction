@@ -1,6 +1,8 @@
 # Diabetes Readmission Prediction
 
-Predict 30-day hospital readmission risk for diabetic patients using the **UCI / Kaggle diabetes dataset**.
+Predict 30-day hospital readmission risk for diabetic patients using data set **Diabetes 130 US hospitals for years 1999-2008**
+
+https://www.kaggle.com/datasets/brandao/diabetes
 
 ---
 
@@ -12,26 +14,26 @@ The workflow demonstrates a complete **end-to-end ML pipeline** — from data cl
 
 ---
 
-## Folder Structure
+### Folder Structure
+```
 diabetes-readmission-prediction/
-│
-├── data/                     # raw + processed data (not committed)
-├── plots/                    # saved charts & visualizations
-│
-├── EDA.ipynb                 # exploratory data analysis
-├── Modeling.ipynb            # model training and evaluation
-│
-├── train.py                  # trains and saves the model artifact
-├── predict.py                # local model inference test
-├── serve.py                  # FastAPI web service (Docker entrypoint)
-│
-├── model_xgb.pkl             # trained XGBoost model
-│
-├── requirements.txt          # Python dependencies
-├── Dockerfile                # container build recipe
-├── pyproject.toml            # uv project configuration
-├── uv.lock                   # environment lock file
-└── README.md                 # project documentation
+├── data/                  # raw data (not committed) + processed
+├── notebooks/             # Jupyter notebooks for EDA and modeling
+│   ├── 01_EDA.ipynb
+│   ├── 02_Modeling.ipynb
+├── src/                   # Python scripts for main steps
+│   ├── main.py
+│   ├── train.py
+│   ├── predict.py
+│   └── serve.py
+├── docker/                # Deployment
+│   └── Dockerfile
+├── requirements.txt       # list of required Python libraries
+├── pyproject.toml         # dependent libraries
+├── README.md              # project description (this file)
+└── uv.lock                # auto-generated file that stores exact library versions for reproducible installs
+```
+
 ---
 
 ## Problem Statement
@@ -41,7 +43,7 @@ This helps healthcare organizations identify **high-risk patients** and plan int
 ---
 
 ## Dataset Summary
-- Source: [UCI Machine Learning Repository / Kaggle – Diabetes 130-US hospitals (1999–2008)](https://archive.ics.uci.edu/ml/datasets/diabetes+130-us+hospitals+for+readmission)
+- Source: [UCI Machine Learning Repository / Kaggle – Diabetes 130-US hospitals (1999–2008)](https://www.kaggle.com/datasets/brandao/diabetes)
 - Records: ~100 k encounters  
 - Features: 50 (demographics, lab procedures, diagnoses, medications, etc.)
 - Target: `readmitted` (`<30`, `>30`, or `NO`) — converted to **binary (1 = readmitted, 0 = no)**
@@ -113,7 +115,7 @@ The API loads the saved model, performs validation, and returns predictions in r
 ### Health Check
 
 **Command:**
-```bash
+bash
 curl http://localhost:9696/health
 
 Example Response:
@@ -158,7 +160,7 @@ Example Response:
   "readmitted": true
 }
 
-# Docker Setup
+## Docker Setup
 
 Build the image:
 
